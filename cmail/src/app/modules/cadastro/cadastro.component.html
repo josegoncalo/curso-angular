@@ -38,18 +38,26 @@
                       </cmail-form-group>
                     <cmail-form-group [campo] = "formCadastro.get('avatar')">
                           <input formControlName="avatar" autofocus required type="text" name="avatar" cmailFormField>   
+                          <div>
                           <span class="mdl-textfield__error" *ngIf="formCadastro.get('avatar').hasError('required')">
                               Informar uma URL com o avatar é obrigatório
                           </span> 
-                          <span class="mdl-textfield__error" *ngIf="formCadastro.get('avatar').status === 'PENDING'">
+                        </div>
+                        <div>
+                          <span *ngIf="formCadastro.get('avatar').status === 'PENDING'">
                               Validação pendente...
                           </span>  
-                          <span class="mdl-textfield__error" *ngIf="formCadastro.get('avatar').status === 'VALID'">
+                        </div>
+                        <div>
+                          <span *ngIf="formCadastro.get('avatar').status === 'VALID'">
                               URL válida
-                          </span>   
+                          </span>  
+                        </div>
+                        <div>
                           <span class="mdl-textfield__error" *ngIf="formCadastro.get('avatar').hasError('urlInvalida')">
                               Erro na URL informada
-                          </span>            
+                          </span> 
+                        </div>            
                     </cmail-form-group>
               <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent">
                 Cadastrar
@@ -57,6 +65,11 @@
             </div>
   
           </form>
+          <ul *ngIf="mensagensErro" class="mdl-textfield is-invalid">
+            <li *ngFor="let erro of mensagensErro" class="mdl-textfield__error">
+              {{erro.message}}: {{erro.value}}
+            </li>
+          </ul>
         </div>
       </div>
     </main>
