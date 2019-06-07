@@ -10,12 +10,17 @@ import { HttpClientModule } from '@angular/common/http';
 import { CadastroModule } from "./modules/cadastro/cadastro.module";
 import { SharedComponentModule } from './components/shared-components.module';
 import { LoginModule } from './modules/login/login/login.module';
+import { FiltroPorAssuntoPipe } from './modules/caixa-de-entrada/filtro-por-assunto.pipe';
+import { ExibirEmailComponent } from './components/exibir-email/exibir-email.component';
+import { ExibirEmailModule } from './modules/exibir-email/exibir-email.module';
 
 @NgModule({
   declarations: [
     AppComponent,    
     CaixaDeEntradaComponent,
-    LoginComponent
+    LoginComponent,
+    FiltroPorAssuntoPipe,
+    ExibirEmailComponent
   ],
   imports: [
     BrowserModule,
@@ -24,7 +29,8 @@ import { LoginModule } from './modules/login/login/login.module';
     HttpClientModule,
     CadastroModule,
     SharedComponentModule,
-    LoginModule  
+    LoginModule,
+    ExibirEmailModule
   ],
   providers: [],
   bootstrap: [AppComponent]

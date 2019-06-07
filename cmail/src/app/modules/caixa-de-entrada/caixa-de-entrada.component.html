@@ -5,17 +5,21 @@
 
       <div class="mdl-grid">
         <ul>
-          <li *ngFor="let email of emailList">
-            <strong>Para:</strong>{{email.destinatario}} <br>
-            <strong>Assunto:</strong>{{email.assunto}}
+          <li *ngFor="let email of filtrarEmailsPorAssunto()">
+              <!--<li *ngFor="let email of emailList | filtroPorAssunto: termoParaFiltro">-->
+              <cmail-list-item 
+              [destinatario]="email.destinatario"
+              [assunto]="email.assunto"
+              [introducaoDoConteudo]="email.introducaoDoConteudo"
+              [dataDeEnvio]="email.dataDeEnvio"
+              (eventoVaiRemover)="handleRemoveEmail($event, email.id)"
+              (click)="handleExibirEmail($event, email.id)"
+              ></cmail-list-item>
+              
           </li>
         </ul>
       </div>
-
-      <cmail-list-item></cmail-list-item>
-      <cmail-list-item></cmail-list-item>
-      <cmail-list-item></cmail-list-item>
-
+      
       <div class="mdl-grid">
         <!-- Floating Multiline Textfield -->
         <button class="globalFab tooltip btn mdl-button mdl-js-button mdl-button--fab mdl-button--colored" role="tooltip"

@@ -5,6 +5,7 @@ import { CmailFormGroupComponent } from './cmail-form-group/cmail-form-group.com
 import { CmailFormFieldDirective } from './cmail-form-group/cmail-form-field.directive';
 import { RouterModule } from '@angular/router';
 import { CmailListItemComponent } from './cmail-list-item/cmail-list-item.component';
+import { ExibirEmailComponent } from './exibir-email/exibir-email.component';
 
 
 @NgModule({
